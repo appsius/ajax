@@ -22,7 +22,10 @@ const countriesContainer = document.querySelector('.countries');
 //        </article>`;
 
 //  countriesContainer.insertAdjacentHTML('beforeend', html);
-//  countriesContainer.style.opacity = 1;
+//};
+
+//const renderError = function (msg) {
+//  countriesContainer.insertAdjacentText('beforeend', msg);
 //};
 
 //const getCountryAndNeighbour = function (country) {
@@ -59,18 +62,25 @@ const countriesContainer = document.querySelector('.countries');
 //    .then(data => {
 //      getData(data[0]);
 
-//      console.log(data[0].borders[0]);
-
 //      const neighbour = data[0].borders[0];
 //      if (!neighbour) return;
 
 //      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
 //    })
 //    .then(res => res.json())
-//    .then(data2 => getData(data2, 'neighbour'));
+//    .then(data2 => getData(data2, 'neighbour'))
+//    .catch(err => {
+//      console.log(`Error: ${err.message}`);
+//      renderError(
+//        `Something went wrong, ${err.message} ⛔⛔⛔ Please try again later!`
+//      );
+//    })
+//    .finally(() => (countriesContainer.style.opacity = 1));
 //};
 
-//getCountryAndNeighbour('tunisia');
+//btn.addEventListener('click', function () {
+//  getCountryAndNeighbour('tunisia');
+//});
 
 // ********************************* 2 *********************************
 //const getCountry = function (data, className = '') {
@@ -90,7 +100,10 @@ const countriesContainer = document.querySelector('.countries');
 //			</article>`;
 
 //  countriesContainer.insertAdjacentHTML('beforeend', html);
-//  countriesContainer.style.opacity = 1;
+//};
+
+//const renderError = function (msg) {
+//  countriesContainer.insertAdjacentText('beforeend', msg);
 //};
 
 //const getCountryAndNeighbour = function (country) {
@@ -132,10 +145,17 @@ const countriesContainer = document.querySelector('.countries');
 //      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
 //    })
 //    .then(res => res.json())
-//    .then(data2 => getCountry(data2, 'neighbour'));
+//    .then(data2 => getCountry(data2, 'neighbour'))
+//    .catch(err => {
+//      console.log(`ERROR: ${err}`);
+//      renderError(`Something went wrong 💥💥💥 Please try again later!`);
+//    })
+//    .finally(() => (countriesContainer.style.opacity = 1));
 //};
 
-//getCountryAndNeighbour('oman');
+//btn.addEventListener('click', function () {
+//  getCountryAndNeighbour('oman');
+//});
 
 // ********************************* 3 *********************************
 //const getCountry = function (data, className = '') {
@@ -154,6 +174,11 @@ const countriesContainer = document.querySelector('.countries');
 //          </div>
 //        </article>`;
 //  countriesContainer.insertAdjacentHTML('beforeend', html);
+//  countriesContainer.style.opacity = 1;
+//};
+
+//const renderError = function (msg) {
+//  countriesContainer.insertAdjacentText('beforeend', msg);
 //  countriesContainer.style.opacity = 1;
 //};
 
@@ -195,7 +220,15 @@ const countriesContainer = document.querySelector('.countries');
 //      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
 //    })
 //    .then(res => res.json())
-//    .then(data2 => getCountry(data2, 'neighbour'));
+//    .then(data2 => getCountry(data2, 'neighbour'))
+//    .catch(err => {
+//      console.log(`Something went wrong, ${err}`);
+//      renderError(
+//        `Something went wrong. Error: ${err.message}, please try again later!`
+//      );
+//    });
 //};
 
-//getData('azerbaijan');
+//btn.addEventListener('click', function () {
+//  getData('turkey');
+//});

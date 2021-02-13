@@ -56,10 +56,21 @@ const countriesContainer = document.querySelector('.countries');
 //const getCountryAndNeighbour = function (country) {
 //  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
 //    .then(res => res.json())
-//    .then(data => getData(data[0]));
+//    .then(data => {
+//      getData(data[0]);
+
+//      console.log(data[0].borders[0]);
+
+//      const neighbour = data[0].borders[0];
+//      if (!neighbour) return;
+
+//      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//    })
+//    .then(res => res.json())
+//    .then(data2 => getData(data2, 'neighbour'));
 //};
 
-//getCountryAndNeighbour('turkey');
+//getCountryAndNeighbour('tunisia');
 
 // ********************************* 2 *********************************
 //const getCountry = function (data, className = '') {
@@ -112,7 +123,16 @@ const countriesContainer = document.querySelector('.countries');
 //const getCountryAndNeighbour = function (country) {
 //  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
 //    .then(res => res.json())
-//    .then(data => getCountry(data[0]));
+//    .then(data => {
+//      getCountry(data[0]);
+
+//      const neighbour = data[0].borders[0];
+//      if (!neighbour) return;
+
+//      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//    })
+//    .then(res => res.json())
+//    .then(data2 => getCountry(data2, 'neighbour'));
 //};
 
 //getCountryAndNeighbour('oman');
@@ -166,7 +186,16 @@ const countriesContainer = document.querySelector('.countries');
 //const getData = function (country) {
 //  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
 //    .then(res => res.json())
-//    .then(data => getCountry(data[0]));
+//    .then(data => {
+//      getCountry(data[0]);
+
+//      const neighbour = data[0].borders[0];
+//      if (!neighbour) return;
+
+//      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//    })
+//    .then(res => res.json())
+//    .then(data2 => getCountry(data2, 'neighbour'));
 //};
 
 //getData('azerbaijan');

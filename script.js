@@ -381,6 +381,44 @@ const countriesContainer = document.querySelector('.countries');
 //});
 //console.log('Execution end!');
 
+// GENERATING PROMISE 1
+//const lotteryPromise = new Promise(function (resolve, reject) {
+//  setTimeout(() => {
+//    if (Math.random() >= 0.5) {
+//      resolve('You win the 🚝🚝🚝');
+//    } else {
+//      reject(new Error('You lost the money 😥😥😥'));
+//    }
+//  }, 1000);
+//});
+
+//lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+//const wait = function (seconds) {
+//  return new Promise(function (resolve) {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//wait(1)
+//  .then(() => {
+//    console.log('Log 1');
+//    return wait(1);
+//  })
+//  .then(() => {
+//    console.log('Log 2');
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Log 3');
+//    return wait(3);
+//  })
+//  .then(() => {
+//    console.log('Log 4');
+//    return wait(4);
+//  })
+//  .catch(() => console.error('No timeout'));
+
 //******************************* 2 ********************************
 //const whereIAm = function (lat, lng) {
 //  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
@@ -400,6 +438,51 @@ const countriesContainer = document.querySelector('.countries');
 ////whereIAm(29929292992929, 43.1640004);
 //whereIAm(36.3566484, 43.1640004);
 
+//GENERATE PROMISE 2
+//const lotteryPromise = new Promise(function (resolve, reject) {
+//  setTimeout(() => {
+//    if (Math.random() >= 0.5) {
+//      resolve('You win the 🤑🤑');
+//    } else {
+//      reject(new Error('You lost the money 😥😥'));
+//    }
+//  }, 1000);
+//});
+
+//lotteryPromise
+//  .then(res => {
+//    console.log(res);
+//  })
+//  .catch(err => console.error(err));
+
+//const wait = function (seconds) {
+//  return new Promise(function (resolve) {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//wait(1)
+//  .then(() => {
+//    console.log('Promisifying TIMER');
+//    return wait(1);
+//  })
+//  .then(() => {
+//    console.log('Log 1');
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Log 2');
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Log 3');
+//    return wait(3);
+//  })
+//  .then(() => {
+//    console.log('Log 4');
+//    return wait(4);
+//  });
+
 //******************************* 3 ********************************
 //const whereIAm = function (lat, lng) {
 //  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
@@ -416,3 +499,43 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //whereIAm(9.0585977, 38.7241055);
+
+//GENERATE PROMISE 3
+//const lotteryPromise = new Promise(function (resolve, reject) {
+//  setTimeout(() => {
+//    if (Math.random() >= 0.5) {
+//      resolve('You win the money 🥰');
+//    } else {
+//      reject(new Error('You lost the money 🩸'));
+//    }
+//  }, 0);
+//});
+
+//lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+//const wait = function (seconds = 0) {
+//  return new Promise(function (resolve) {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//wait()
+//  .then(() => {
+//    console.log('Promisifying starting...');
+//    return wait(1);
+//  })
+//  .then(() => {
+//    console.log('Log 1');
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Log 2');
+//    return wait(3);
+//  })
+//  .then(() => {
+//    console.log('Log 3');
+//    return wait(4);
+//  })
+//  .then(() => {
+//    console.log('Log 4');
+//  });

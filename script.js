@@ -5,6 +5,77 @@ const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
 // ********************************* 1 *********************************
+//const getData = function (data, className = '') {
+//  const html = `<article class="country ${className}">
+//          <img class="country__img" src="${data.flag}" />
+//          <div class="country__data">
+//            <h3 class="country__name">${data.name}</h3>
+//            <h4 class="country__region">${data.region}</h4>
+//            <p class="country__row"><span>${+(
+//              data.population / 1000000
+//            ).toFixed(0)} million</span>POP people</p>
+//            <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+//            <p class="country__row"><span>💰</span>${
+//              data.currencies[0].name
+//            }</p>
+//          </div>
+//        </article>`;
+
+//  countriesContainer.insertAdjacentHTML('beforeend', html);
+//};
+
+//const renderError = function (msg) {
+//  countriesContainer.insertAdjacentText('beforeend', msg);
+//};
+
+//const getJSON = function (url, errorMsg = 'Something went wrong!') {
+//  return fetch(url).then(res => {
+//    if (!res.ok) throw new Error(`${errorMsg} ${res.status}`);
+//    return res.json();
+//  });
+//};
+
+//const getCountryAndNeighbour = function (lat, lng) {
+//  getJSON(
+//    `https://geocode.xyz/${lat},${lng}?geoit=json`,
+//    'Only 3 requests are allowed per second!'
+//  )
+//    .then(data => {
+//      if (!data.city || !data.country) throw new Error('No coordinates found!');
+//      const { country } = data;
+
+//      return getJSON(
+//        `https://restcountries.eu/rest/v2/name/${country}`,
+//        'Country not found!'
+//      );
+//    })
+//    .then(data1 => {
+//      getData(data1[0]);
+
+//      const neighbour = data1[0].borders[0];
+//      if (!neighbour) throw new Error('No neighbour found');
+
+//      return getJSON(
+//        `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
+//        'No country found!'
+//      );
+//    })
+//    .then(data2 => getData(data2, 'neighbour'))
+//    .catch(err => {
+//      console.error(err);
+//      renderError(`Error: ${err.message} 💥💥💥`);
+//    })
+//    .finally(() => {
+//      countriesContainer.style.opacity = 1;
+//    });
+//};
+
+//btn.addEventListener('click', function () {
+//  //getCountryAndNeighbour(19.1852115, 35.3631897);
+//});
+
+//getCountryAndNeighbour(18.2869546, 42.6773798);
+
 //const getCountryAndNeighbour = function (country) {
 //  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
 //    .then(res => res.json())
@@ -27,105 +98,7 @@ const countriesContainer = document.querySelector('.countries');
 //    .finally(() => (countriesContainer.style.opacity = 1));
 //};
 
-const getData = function (data, className = '') {
-  const html = `<article class="country ${className}">
-          <img class="country__img" src="${data.flag}" />
-          <div class="country__data">
-            <h3 class="country__name">${data.name}</h3>
-            <h4 class="country__region">${data.region}</h4>
-            <p class="country__row"><span>${+(
-              data.population / 1000000
-            ).toFixed(0)} million</span>POP people</p>
-            <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
-            <p class="country__row"><span>💰</span>${
-              data.currencies[0].name
-            }</p>
-          </div>
-        </article>`;
-
-  countriesContainer.insertAdjacentHTML('beforeend', html);
-};
-
-const renderError = function (msg) {
-  countriesContainer.insertAdjacentText('beforeend', msg);
-};
-
-const getJSON = function (url, errorMsg = 'Something went wrong!') {
-  return fetch(url).then(res => {
-    if (!res.ok) throw new Error(`${errorMsg} ${res.status}`);
-    return res.json();
-  });
-};
-
-const getCountryAndNeighbour = function (lat, lng) {
-  getJSON(
-    `https://geocode.xyz/${lat},${lng}?geoit=json`,
-    'Only 3 requests are allowed per second!'
-  )
-    .then(data => {
-      if (!data.city || !data.country) throw new Error('No coordinates found!');
-      const { country } = data;
-
-      return getJSON(
-        `https://restcountries.eu/rest/v2/name/${country}`,
-        'Country not found!'
-      );
-    })
-    .then(data1 => {
-      getData(data1[0]);
-
-      const neighbour = data1[0].borders[0];
-      if (!neighbour) throw new Error('No neighbour found');
-
-      return getJSON(
-        `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
-        'No country found!'
-      );
-    })
-    .then(data2 => getData(data2, 'neighbour'))
-    .catch(err => {
-      console.error(err);
-      renderError(`Error: ${err.message} 💥💥💥`);
-    })
-    .finally(() => {
-      countriesContainer.style.opacity = 1;
-    });
-};
-
-btn.addEventListener('click', function () {
-  //getCountryAndNeighbour(19.1852115, 35.3631897);
-});
-
-getCountryAndNeighbour(18.2869546, 42.6773798);
-
 // NOTE ********************************* 2 *********************************
-//const getCountryAndNeighbour = function (country) {
-//  const request = new XMLHttpRequest();
-//  request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
-//  request.send();
-
-//  request.addEventListener('load', function () {
-//    const [data] = JSON.parse(this.responseText);
-//    console.log(data);
-
-//    //get country data
-//    getCountry(data);
-
-//    const [neighbour] = data.borders;
-//    if (!neighbour) return;
-
-//    const request2 = new XMLHttpRequest();
-//    request2.open('GET', `https://restcountries.eu/rest/v2/alpha/${neighbour}`);
-//    request2.send();
-
-//    request2.addEventListener('load', function () {
-//      const data2 = JSON.parse(this.responseText);
-//      console.log(data2);
-//      getCountry(data2, 'neighbour');
-//    });
-//  });
-//};
-
 //const getCountry = function (data, className = '') {
 //  const html = `<article class="country ${className}">
 //		<img class="country__img" src="${data.flag}" />
@@ -221,8 +194,7 @@ getCountryAndNeighbour(18.2869546, 42.6773798);
 //    .finally(() => (countriesContainer.style.opacity = 1));
 //};
 
-// NOTE ********************************* 3 *********************************
-//const getData = function (country) {
+//const getCountryAndNeighbour = function (country) {
 //  const request = new XMLHttpRequest();
 //  request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
 //  request.send();
@@ -231,6 +203,7 @@ getCountryAndNeighbour(18.2869546, 42.6773798);
 //    const [data] = JSON.parse(this.responseText);
 //    console.log(data);
 
+//    //get country data
 //    getCountry(data);
 
 //    const [neighbour] = data.borders;
@@ -248,6 +221,7 @@ getCountryAndNeighbour(18.2869546, 42.6773798);
 //  });
 //};
 
+// NOTE ********************************* 3 *********************************
 //const getCountry = function (data, className = '') {
 //  const html = `<article class="country ${className}">
 //          <img class="country__img" src="${data.flag}" />
@@ -322,6 +296,32 @@ getCountryAndNeighbour(18.2869546, 42.6773798);
 
 //getData(35.828058, 35.828058);
 
+//const getData = function (country) {
+//  const request = new XMLHttpRequest();
+//  request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
+//  request.send();
+
+//  request.addEventListener('load', function () {
+//    const [data] = JSON.parse(this.responseText);
+//    console.log(data);
+
+//    getCountry(data);
+
+//    const [neighbour] = data.borders;
+//    if (!neighbour) return;
+
+//    const request2 = new XMLHttpRequest();
+//    request2.open('GET', `https://restcountries.eu/rest/v2/alpha/${neighbour}`);
+//    request2.send();
+
+//    request2.addEventListener('load', function () {
+//      const data2 = JSON.parse(this.responseText);
+//      console.log(data2);
+//      getCountry(data2, 'neighbour');
+//    });
+//  });
+//};
+
 //******************************************************************
 //*** Coding Challenge #1
 //******************************* 1 ********************************
@@ -344,6 +344,42 @@ getCountryAndNeighbour(18.2869546, 42.6773798);
 //};
 
 //whereIAm(37.91898, 40.1966645);
+
+//************ microtask queue & callback queue 1 ********************
+//console.log('Execution started!');
+//setTimeout(() => {
+//  console.log('Timer 0');
+//}, 0);
+//Promise.resolve('Promise 1').then(res => console.log(res));
+//Promise.resolve('Promise 2').then(res => {
+//  for (let i = 0; i < 1000000000; i++) {}
+//  console.log(res);
+//});
+//console.log('Execution end!');
+
+//************ microtask queue & callback queue 2 ********************
+//console.log('Execution started!');
+//setTimeout(() => {
+//  console.log('Timer 0');
+//}, 0);
+//Promise.resolve('Promise 1').then(res => console.log(res));
+//Promise.resolve('Promise 2').then(res => {
+//  for (let i = 0; i < 1000000000; i++) {}
+//  console.log(res);
+//});
+//console.log('Execution end!');
+
+//************ microtask queue & callback queue 3 ********************
+//console.log('Execution started!');
+//setTimeout(() => {
+//  console.log('Timer 0!');
+//}, 0);
+//Promise.resolve('Promise 1').then(res => console.log(res));
+//Promise.resolve('Promise 2').then(res => {
+//  for (let i = 0; i < 1000000000; i++) {}
+//  console.log(res);
+//});
+//console.log('Execution end!');
 
 //******************************* 2 ********************************
 //const whereIAm = function (lat, lng) {

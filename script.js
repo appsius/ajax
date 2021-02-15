@@ -35,11 +35,22 @@ const countriesContainer = document.querySelector('.countries');
 //  });
 //};
 
+//const getPosition = function () {
+//  return new Promise((resolve, reject) => {
+//    navigator.geolocation.getCurrentPosition(resolve, reject);
+//  });
+//};
+
 //const getCountryAndNeighbour = function (lat, lng) {
-//  getJSON(
-//    `https://geocode.xyz/${lat},${lng}?geoit=json`,
-//    'Only 3 requests are allowed per second!'
-//  )
+//  getPosition()
+//    .then(pos => {
+//      const { latitude: lat, longitude: lng } = pos.coords;
+
+//      return getJSON(
+//        `https://geocode.xyz/${lat},${lng}?geoit=json`,
+//        'Only 3 requests are allowed per second!'
+//      );
+//    })
 //    .then(data => {
 //      if (!data.city || !data.country) throw new Error('No coordinates found!');
 //      const { country } = data;
@@ -71,32 +82,8 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //btn.addEventListener('click', function () {
-//  //getCountryAndNeighbour(19.1852115, 35.3631897);
+//  getCountryAndNeighbour();
 //});
-
-//getCountryAndNeighbour(18.2869546, 42.6773798);
-
-//const getCountryAndNeighbour = function (country) {
-//  fetch(`https://restcountries.eu/rest/v2/name/${country}`)
-//    .then(res => res.json())
-//    .then(data => {
-//      getData(data[0]);
-
-//      const neighbour = data[0].borders[0];
-//      if (!neighbour) return;
-
-//      return fetch(`https://restcountries.eu/rest/v2/alpha/${neighbour}`);
-//    })
-//    .then(res => res.json())
-//    .then(data2 => getData(data2, 'neighbour'))
-//    .catch(err => {
-//      console.log(`Error: ${err.message}`);
-//      renderError(
-//        `Something went wrong, ${err.message} ⛔⛔⛔ Please try again later!`
-//      );
-//    })
-//    .finally(() => (countriesContainer.style.opacity = 1));
-//};
 
 // NOTE ********************************* 2 *********************************
 //const getCountry = function (data, className = '') {
@@ -129,13 +116,23 @@ const countriesContainer = document.querySelector('.countries');
 //  });
 //};
 
-//const getCountryAndNeighbour = function (lat, lng) {
-//  getJSON(
-//    `https://geocode.xyz/${lat},${lng}?geoit=json`,
-//    'Only 3 requests are allowed per seconds!'
-//  )
+//const getPosition = function () {
+//  return new Promise((resolve, reject) => {
+//    navigator.geolocation.getCurrentPosition(resolve, reject);
+//  });
+//};
+
+//const getCountryAndNeighbour = function () {
+//  getPosition()
+//    .then(pos => {
+//      const { latitude: lat, longitude: lng } = pos.coords;
+
+//      return getJSON(
+//        `https://geocode.xyz/${lat},${lng}?geoit=json`,
+//        'Only 3 requests are allowed per seconds!'
+//      );
+//    })
 //    .then(data => {
-//      console.log(data);
 //      if (data.error) throw new Error('No coordinates found!');
 //      console.log(`You are in ${data.city}, ${data.country}`);
 
@@ -147,7 +144,6 @@ const countriesContainer = document.querySelector('.countries');
 //      );
 //    })
 //    .then(data => {
-//      //console.log(data);
 //      getCountry(data[0]);
 
 //      const neighbour = data[0].borders[0];
@@ -166,33 +162,8 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //btn.addEventListener('click', function () {
-//getCountryAndNeighbour(-21.1600173, 95.3624096);
+//  getCountryAndNeighbour();
 //});
-
-//getCountryAndNeighbour(-18.8791902, 47.5079055);
-
-//const getCountryAndNeighbour = function (country) {
-//  getJSON(
-//    `https://restcountries.eu/rest/v2/name/${country}`,
-//    'No country found!'
-//  )
-//    .then(data => {
-//      getCountry(data[0]);
-
-//      const neighbour = data[0].borders[0];
-//      if (!neighbour) throw new Error('No neighbour found!');
-
-//      return getJSON(
-//        `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
-//        'No country found!'
-//      );
-//    })
-//    .then(data2 => getCountry(data2, 'neighbour'))
-//    .catch(err => {
-//      renderError(`Error: ${err.message} 💥💥💥 Please try again later!`);
-//    })
-//    .finally(() => (countriesContainer.style.opacity = 1));
-//};
 
 //const getCountryAndNeighbour = function (country) {
 //  const request = new XMLHttpRequest();
@@ -251,11 +222,22 @@ const countriesContainer = document.querySelector('.countries');
 //  });
 //};
 
-//const getData = function (lat, lng) {
-//  getJSON(
-//    `https://geocode.xyz/${lat},${lng}?geoit=json`,
-//    'Only 3 requests are alllowed per second!'
-//  )
+//const getPosition = function () {
+//  return new Promise((resolve, reject) => {
+//    navigator.geolocation.getCurrentPosition(resolve, reject);
+//  });
+//};
+
+//const getData = function () {
+//  getPosition()
+//    .then(pos => {
+//      const { latitude: lat, longitude: lng } = pos.coords;
+
+//      return getJSON(
+//        `https://geocode.xyz/${lat},${lng}?geoit=json`,
+//        'Only 3 requests are alllowed per second!'
+//      );
+//    })
 //    .then(data => {
 //      if (data.error) throw new Error('Coordinates are not true!');
 //      console.log(`You are in ${data.city}, ${data.country}`);
@@ -291,10 +273,8 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //btn.addEventListener('click', function () {
-//  getData(34.828058, 35.828058);
+//  getData();
 //});
-
-//getData(35.828058, 35.828058);
 
 //const getData = function (country) {
 //  const request = new XMLHttpRequest();
@@ -538,4 +518,146 @@ const countriesContainer = document.querySelector('.countries');
 //  })
 //  .then(() => {
 //    console.log('Log 4');
+//  });
+
+//************************ Challange #2 - 1 ************************
+//const wait = function (seconds = 0) {
+//  return new Promise(function (resolve) {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//const createImage = function (imagePath) {
+//  return new Promise(resolve => {
+//    const img = document.createElement('img');
+//    img.src = `./img/${imagePath}`;
+//    img.addEventListener('load', function () {
+//      document.querySelector('.images').append(img);
+//      resolve(img);
+//    });
+//  });
+//};
+
+//wait(2)
+//  .then(() => {
+//    createImage('img-1.jpg').then(img => {
+//      wait(2).then(() => {
+//        img.style.display = 'none';
+//      });
+//    });
+//  })
+//  .then(() => {
+//    return wait(2).then(() => createImage('img-2.jpg'));
+//  })
+//  .then(img => {
+//    wait(2).then(() => {
+//      img.style.display = 'none';
+//    });
+//  })
+//  .catch(err => console.error(err));
+
+//************************ Challange #2 - 2 ************************
+//const wait = function (seconds = 0) {
+//  return new Promise(resolve => {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//const imageContainer = document.querySelector('.images');
+//let currentImage;
+
+//const createImage = function (imagePath) {
+//  return new Promise((resolve, reject) => {
+//    const img = document.createElement('img');
+//    img.src = `/img/${imagePath}`;
+
+//    img.addEventListener('load', function () {
+//      imageContainer.append(img);
+//      resolve(img);
+//    });
+
+//    img.addEventListener('error', function () {
+//      reject(new Error('Image not found!'));
+//    });
+//  });
+//};
+
+//createImage('img-1.jpg')
+//  .then(img => {
+//    console.log('Image 1 loaded!');
+//    currentImage = img;
+//    return wait(2);
+//  })
+//  .then(() => {
+//    currentImage.style.display = 'none';
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Image 2 loaded!');
+//    return createImage('img-2.jpg');
+//  })
+//  .then(img => {
+//    currentImage = img;
+//    return wait(2);
+//  })
+//  .then(() => {
+//    currentImage.style.display = 'none';
+//  })
+//  .catch(err => {
+//    console.error(err);
+//  });
+
+//************************ Challange #2 - 3 ************************
+//const wait = function (seconds = 0) {
+//  return new Promise(resolve => {
+//    setTimeout(resolve, seconds * 1000);
+//  });
+//};
+
+//const imageContainer = document.querySelector('.images');
+
+//const createImg = function (imgPath) {
+//  return new Promise((resolve, reject) => {
+//    const img = document.createElement('img');
+//    img.src = `/img/${imgPath}`;
+
+//    img.addEventListener('load', () => {
+//      imageContainer.append(img);
+//      resolve(img);
+//    });
+
+//    img.addEventListener('error', () => {
+//      reject(new Error('Image path not found!'));
+//    });
+//  });
+//};
+
+//let currentImage;
+
+//wait(2)
+//  .then(() => {
+//    return createImg('img-1.jpg');
+//  })
+//  .then(img => {
+//    console.log('Image 1 loaded!');
+//    currentImage = img;
+//    return wait(2);
+//  })
+//  .then(() => {
+//    currentImage.style.display = 'none';
+//    return wait(2);
+//  })
+//  .then(() => {
+//    console.log('Image 2 loaded!');
+//    return createImg('img-2.jpg');
+//  })
+//  .then(img => {
+//    currentImage = img;
+//    return wait(2);
+//  })
+//  .then(() => {
+//    currentImage.style.display = 'none';
+//  })
+//  .catch(err => {
+//    console.error(err);
 //  });

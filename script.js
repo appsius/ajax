@@ -82,10 +82,10 @@ const countriesContainer = document.querySelector('.countries');
 //  try {
 //    const whereYouAre = await getCountryAndNeighbour();
 //    console.log(`2: ${whereYouAre}`);
-//    console.log('3: Operation finished');
 //  } catch (err) {
 //    console.error(err);
 //  }
+//    console.log('3: Operation finished');
 //})();
 
 //btn.addEventListener('click', function () {});
@@ -675,3 +675,75 @@ const countriesContainer = document.querySelector('.countries');
 //  .catch(err => {
 //    console.error(err);
 //  });
+
+//***************************************************************
+//*********************** Promise In Parallel *******************
+//*********************** 1 *************************************
+//const getCapitol = async function (c1, c2, c3) {
+//  try {
+//    const data = await Promise.all([
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c1}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c2}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c3}`),
+//    ]);
+//    const capitols = data.map(d => d[0].capital);
+//    console.log(capitols);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//getCapitol('turkey', 'iran', 'egypt');
+
+//*********************** 2 *************************************
+//***************************************************************
+//const getJSON = function (url, errorMsg = 'Something went wrong') {
+//  return fetch(url).then(response => {
+//    if (!response.ok) throw new Error(`${errorMsg.message}`);
+//    return response.json();
+//  });
+//};
+
+//const getCapitols = async function (c1, c2, c3) {
+//  try {
+//    const data = await Promise.all([
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c1}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c2}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c3}`),
+//    ]);
+//    const capitols = data.map(d => d[0].capital);
+//    console.log(capitols);
+//  } catch (error) {
+//    console.error(error);
+//  }
+//};
+
+//getCapitols('saudi arabia', 'iraq', 'syria');
+
+//*********************** 3 *************************************
+//***************************************************************
+//const getJSON = async (url, errMsg = 'Something went wrong') => {
+//  try {
+//    const res = await fetch(url);
+//    if (!res.ok) throw new Error(`${errMsg}`);
+//    return res.json();
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//const getCapitols = async (c1, c2, c3) => {
+//  try {
+//    const data = await Promise.all([
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c1}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c2}`),
+//      getJSON(`https://restcountries.eu/rest/v2/name/${c3}`),
+//    ]);
+//    const capitols = data.map(d => d[0].capital);
+//    console.log(capitols);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//getCapitols('turkey', 'georgia', 'armenia');

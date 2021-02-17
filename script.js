@@ -950,3 +950,90 @@ const countriesContainer = document.querySelector('.countries');
 //    console.log(error);
 //  }
 //})();
+
+//************************** 1 ********************************/
+
+//const ShoppingCart = (function () {
+//  const cart = [];
+//  const shippingPrice = 0;
+//  const totalPrice = 333;
+//  const totalQuantity = 33;
+
+//  const addToCart = function (product, quantity) {
+//    cart.push({ product, quantity });
+//    console.log(`${quantity} ${product} has been added to cart list.`);
+//  };
+
+//  const orderStock = function (product, quantity) {
+//    console.log(
+//      `${quantity} ${product} at shipping price: ${shippingPrice} are ordered from supplier.`
+//    );
+//  };
+
+//  return {
+//    cart,
+//    totalPrice,
+//    addToCart,
+//  };
+//})();
+
+//ShoppingCart.addToCart('armut', 4);
+//console.log(ShoppingCart.cart);
+
+//************************** 2 ********************************/
+//const ShoppingCart = (function () {
+//  const cart = [];
+//  const shippingPrice = 10;
+//  const totalPrice = 333;
+//  const totalQuantity = 22;
+
+//  const addToCart = function (product, quantity) {
+//    cart.push({ product, quantity });
+//    console.log(
+//      `${quantity} ${product} added to product list (shipping price is ${shippingPrice})`
+//    );
+//  };
+
+//  const orderStock = function (product, quantity) {
+//    console.log(`${quantity} ${product} ordered from supplier.`);
+//  };
+
+//  return {
+//    cart,
+//    totalPrice,
+//    addToCart,
+//  };
+//})();
+
+//ShoppingCart.addToCart('banana', 2);
+//console.log(ShoppingCart);
+//console.log(ShoppingCart.shippingPrice);
+
+//************************** 3 ********************************/
+//const ShoppingCart = (() => {
+//  const cart = [];
+//  const totalPrice = 444;
+//  const totalQuantity = 55;
+//  const shippingPrice = 11;
+
+//  const addToCart = (product, quantity) => {
+//    cart.push({ product, quantity });
+//    console.log(
+//      `${quantity} ${product} are added to the cart (shipping price is ${shippingPrice})`
+//    );
+//  };
+
+//  const orderStock = (product, quantity) => {
+//    console.log(`${quantity} ${product} is ordered from supplier.`);
+//  };
+
+//  return {
+//    cart,
+//    totalPrice,
+//    addToCart,
+//  };
+//})();
+
+//console.log(ShoppingCart);
+//ShoppingCart.addToCart('quince', 44);
+//console.log(ShoppingCart.shippingPrice);

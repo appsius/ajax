@@ -534,7 +534,8 @@ const countriesContainer = document.querySelector('.countries');
 //    console.log('Log 4');
 //  });
 
-//************************ Challange #2 - 1 ************************
+//************************ Challange #2 vs. #3 - 1 ************************
+
 //const wait = function (seconds = 0) {
 //  return new Promise(function (resolve) {
 //    setTimeout(resolve, seconds * 1000);
@@ -542,35 +543,57 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //const createImage = function (imagePath) {
-//  return new Promise(resolve => {
+//  return new Promise((resolve, reject) => {
 //    const img = document.createElement('img');
 //    img.src = `./img/${imagePath}`;
-//    img.addEventListener('load', function () {
+
+//    img.addEventListener('load', () => {
 //      document.querySelector('.images').append(img);
 //      resolve(img);
+//    });
+
+//    img.addEventListener('error', () => {
+//      reject(new Error('Img not found!'));
 //    });
 //  });
 //};
 
-//wait(2)
-//  .then(() => {
-//    createImage('img-1.jpg').then(img => {
-//      wait(2).then(() => {
-//        img.style.display = 'none';
-//      });
-//    });
-//  })
-//  .then(() => {
-//    return wait(2).then(() => createImage('img-2.jpg'));
-//  })
-//  .then(img => {
-//    wait(2).then(() => {
-//      img.style.display = 'none';
-//    });
-//  })
-//  .catch(err => console.error(err));
+//let currentImg;
 
-//************************ Challange #2 - 2 ************************
+//(async () => {
+//  try {
+//    await wait(2);
+//    const dataImg1 = await createImage('img-1.jpg');
+//    currentImg = dataImg1;
+//    await wait(2);
+//    currentImg.style.display = 'none';
+
+//    await wait(2);
+//    const dataImg2 = await createImage('img-2.jpg');
+//    currentImg = dataImg2;
+//    await wait(2);
+//    currentImg.style.display = 'none';
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+// *** Part 2
+//const loadAllImgs = async imagePaths => {
+//  try {
+//    const imgs = await imagePaths.map(img => createImage(img));
+//    const data = await Promise.all([...imgs]);
+
+//    data.forEach(d => d.classList.add('parallel'));
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//loadAllImgs(['img-1.jpg', 'img-2.jpg', 'img-3.jpg']);
+
+//************************ Challange #2 vs. #3 - 2 ************************
+
 //const wait = function (seconds = 0) {
 //  return new Promise(resolve => {
 //    setTimeout(resolve, seconds * 1000);
@@ -578,7 +601,6 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //const imageContainer = document.querySelector('.images');
-//let currentImage;
 
 //const createImage = function (imagePath) {
 //  return new Promise((resolve, reject) => {
@@ -596,32 +618,41 @@ const countriesContainer = document.querySelector('.countries');
 //  });
 //};
 
-//createImage('img-1.jpg')
-//  .then(img => {
-//    console.log('Image 1 loaded!');
-//    currentImage = img;
-//    return wait(2);
-//  })
-//  .then(() => {
-//    currentImage.style.display = 'none';
-//    return wait(2);
-//  })
-//  .then(() => {
-//    console.log('Image 2 loaded!');
-//    return createImage('img-2.jpg');
-//  })
-//  .then(img => {
-//    currentImage = img;
-//    return wait(2);
-//  })
-//  .then(() => {
-//    currentImage.style.display = 'none';
-//  })
-//  .catch(err => {
-//    console.error(err);
-//  });
+//let currentImg;
 
-//************************ Challange #2 - 3 ************************
+//(async () => {
+//  try {
+//    await wait(2);
+//    const dataImg1 = await createImage('img-1.jpg');
+//    await wait(2);
+//    currentImg = dataImg1;
+//    dataImg1.style.display = 'none';
+
+//    await wait(2);
+//    const dataImg2 = await createImage('img-2.jpg');
+//    await wait(2);
+//    currentImg = dataImg2;
+//    dataImg2.style.display = 'none';
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//*** Part 2
+//const loadAll = async imagePaths => {
+//  try {
+//    const imgs = await imagePaths.map(img => createImage(img));
+//    const imgsData = await Promise.all([...imgs]);
+//    imgsData.forEach(img => img.classList.add('parallel'));
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//loadAll(['img-1.jpg', 'img-2.jpg', 'img-3.jpg']);
+
+//************************ Challange #2 vs. #3 - 3 ************************
+
 //const wait = function (seconds = 0) {
 //  return new Promise(resolve => {
 //    setTimeout(resolve, seconds * 1000);
@@ -648,36 +679,36 @@ const countriesContainer = document.querySelector('.countries');
 
 //let currentImage;
 
-//wait(2)
-//  .then(() => {
-//    return createImg('img-1.jpg');
-//  })
-//  .then(img => {
-//    console.log('Image 1 loaded!');
-//    currentImage = img;
-//    return wait(2);
-//  })
-//  .then(() => {
+//(async () => {
+//  try {
+//    await wait(2);
+//    const dataImg1 = await createImg('img-1.jpg');
+//    await wait(2);
+//    currentImage = dataImg1;
 //    currentImage.style.display = 'none';
-//    return wait(2);
-//  })
-//  .then(() => {
-//    console.log('Image 2 loaded!');
-//    return createImg('img-2.jpg');
-//  })
-//  .then(img => {
-//    currentImage = img;
-//    return wait(2);
-//  })
-//  .then(() => {
-//    currentImage.style.display = 'none';
-//  })
-//  .catch(err => {
-//    console.error(err);
-//  });
+
+//    await wait(2);
+//    const dataImg2 = await createImg('img-2.jpg');
+//    await wait(2);
+//    currentImage = dataImg2;
+//    dataImg2.style.display = 'none';
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//Part 2
+//(async () => {
+//  const imgs = await ['img-1.jpg', 'img-2.jpg', 'img-3.jpg'].map(img =>
+//    createImg(img)
+//  );
+//  const imgsData = await Promise.all([...imgs]);
+//  imgsData.forEach(img => img.classList.add('parallel'));
+//})();
 
 //*********************** Promise In Parallel *******************
 //*********************** 1 *************************************
+
 //const getJson = async function (url, errMessage = 'Something went wrong!') {
 //  try {
 //    const res = await fetch(url);

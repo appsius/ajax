@@ -676,9 +676,64 @@ const countriesContainer = document.querySelector('.countries');
 //    console.error(err);
 //  });
 
-//***************************************************************
 //*********************** Promise In Parallel *******************
 //*********************** 1 *************************************
+//const getJson = async function (url, errMessage = 'Something went wrong!') {
+//  try {
+//    const res = await fetch(url);
+//    if (!res.ok) throw new Error(`${errMessage}`);
+
+//    return res.json();
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//(async function () {
+//  try {
+//    const winner = await Promise.race([
+//      getJson(`https://restcountries.eu/rest/v2/name/iran`),
+//      getJson(`https://restcountries.eu/rest/v2/name/turkey`),
+//      getJson(`https://restcountries.eu/rest/v2/name/usa`),
+//    ]);
+//    console.log(winner[0]);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//const timeout = function (s) {
+//  return new Promise((_, reject) => {
+//    setTimeout(() => {
+//      reject(new Error('Request rejected'));
+//    }, s * 1000);
+//  });
+//};
+
+//Promise.race([
+//  getJson(`https://restcountries.eu/rest/v2/name/turkey`),
+//  timeout(2.5),
+//])
+//  .then(res => console.log(res))
+//  .catch(err => console.log(err));
+
+//Promise.allSettled([
+//  Promise.resolve('Success'),
+//  Promise.reject('Error'),
+//  Promise.resolve('Finished'),
+//])
+//  .then(res => console.log(res))
+//  .catch(err => console.log(err));
+
+//Promise.any([
+//  Promise.resolve('Success Any 1'),
+//  Promise.reject('Error Any 1'),
+//  Promise.reject('Error Any 2'),
+//  Promise.resolve('Success Any 2'),
+//])
+//  .then(res => console.log(res))
+//  .catch(err => console.log(err));
+
 //const getCapitol = async function (c1, c2, c3) {
 //  try {
 //    const data = await Promise.all([
@@ -696,7 +751,7 @@ const countriesContainer = document.querySelector('.countries');
 //getCapitol('turkey', 'iran', 'egypt');
 
 //*********************** 2 *************************************
-//***************************************************************
+
 //const getJSON = function (url, errorMsg = 'Something went wrong') {
 //  return fetch(url).then(response => {
 //    if (!response.ok) throw new Error(`${errorMsg.message}`);
@@ -720,8 +775,67 @@ const countriesContainer = document.querySelector('.countries');
 
 //getCapitols('saudi arabia', 'iraq', 'syria');
 
+//const getJson = async function (url, errorMsg = 'Something went wrong!') {
+//  try {
+//    const res = await fetch(url);
+//    if (!res.ok) throw new Error(`${errorMsg}`);
+//    return res.json();
+//  } catch (error) {
+//    console.log(`${error} 💥💥`);
+//  }
+//};
+
+//const timer = secs => {
+//  return new Promise((_, reject) => {
+//    setTimeout(() => {
+//      reject(new Error('Promise gets too long!'));
+//    }, secs * 1000);
+//  });
+//};
+
+//(async function () {
+//  try {
+//    const data = await Promise.race([
+//      getJson(`https://restcountries.eu/rest/v2/name/turkey`),
+//      timer(0.3),
+//    ]);
+//    console.log(data[0]);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//(async function () {
+//  try {
+//    const data = await Promise.allSettled([
+//      Promise.resolve('Allsettled Success 1'),
+//      Promise.reject('Allsettled Error 1'),
+//      Promise.resolve('Allsettled Success 2'),
+//      Promise.reject('Allsettled Error 2'),
+//    ]);
+//    const dataArr = data.map(d => d.status);
+//    console.log(dataArr);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//(async function () {
+//  try {
+//    const data = await Promise.any([
+//      Promise.resolve('Allsettled Success 1'),
+//      Promise.reject('Allsettled Error 1'),
+//      Promise.resolve('Allsettled Success 2'),
+//      Promise.reject('Allsettled Error 2'),
+//    ]);
+//    console.log(data);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
 //*********************** 3 *************************************
-//***************************************************************
+
 //const getJSON = async (url, errMsg = 'Something went wrong') => {
 //  try {
 //    const res = await fetch(url);
@@ -747,3 +861,61 @@ const countriesContainer = document.querySelector('.countries');
 //};
 
 //getCapitols('turkey', 'georgia', 'armenia');
+
+// ************* other promise combinators --> race, allSettled, any (ES21) ************
+//const getJson = async (url, errorMsg) => {
+//  try {
+//    const res = await fetch(url);
+//    if (!res.ok) throw new Error(`${errorMsg} 💥💥💥`);
+//    return res.json();
+//  } catch (error) {
+//    console.log(error);
+//  }
+//};
+
+//const timer = secs => {
+//  return new Promise((_, reject) => {
+//    setTimeout(() => {
+//      reject(new Error('Request took too long!'));
+//    }, secs * 1000);
+//  });
+//};
+
+//(async () => {
+//  try {
+//    const data = await Promise.race([
+//      getJson(`https://restcountries.eu/rest/v2/name/iran`),
+//      timer(0.3),
+//    ]);
+//    console.log(data[0].name);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//(async () => {
+//  try {
+//    const data = await Promise.allSettled([
+//      Promise.resolve('Success 1'),
+//      Promise.reject('Fail 1'),
+//      Promise.reject('Fail 1'),
+//    ]);
+//    const dataStatus = data.map(d => d.status);
+//    console.log(dataStatus.join(', '));
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
+
+//(async () => {
+//  try {
+//    const data = await Promise.any([
+//      Promise.resolve('Success 11'),
+//      Promise.resolve('Success 22'),
+//      Promise.reject('Error 11'),
+//    ]);
+//    console.log(data);
+//  } catch (error) {
+//    console.log(error);
+//  }
+//})();
